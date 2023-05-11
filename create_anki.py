@@ -28,14 +28,11 @@ def invoke(action, **params):
     return response["result"]
 
 
-def note_exists(deck_name, back):
+def get_notes_info(deck_name):
     notes_ids = invoke("findNotes", query=f'deck:"{deck_name}"')
     if notes_ids:
-        for note_id in notes_ids:
-            note_info = invoke("notesInfo", notes=[note_id])
-            if note_info[0]["fields"]["Back"]["value"] == back:
-                return True
-    return False
+        return invoke("notesInfo", notes=notes_ids)
+    return []
 
 
 # Route for creating a new Anki note
@@ -47,10 +44,13 @@ def create_anki_notes():
 
     if deck_name and notes:
         invoke("createDeck", deck=deck_name)
+        existing_notes = get_notes_info(deck_name)
+        existing_backs = {note["fields"]["Back"]["value"] for note in existing_notes}
+
         for note in notes:
             front = note.get("Front")
             back = note.get("Back")
-            if note_exists(deck_name, back):
+            if back in existing_backs:
                 print(f"Note {front}/{back[:10]}... already exists")
                 continue
             anki_note = {
