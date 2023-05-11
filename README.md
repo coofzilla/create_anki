@@ -136,3 +136,53 @@ Desired output:
 
 
 ```
+
+#### Vocabulary Example Output
+
+```
+{
+    "deck": "Demon Slayer",
+    "notes": [
+        {
+            "Front": "혈귀",
+            "Back": "Demon\n<ul><li>혈귀는 인간의 피를 마시고 생존한다.</li><li>Demons survive by drinking human blood.</li></ul>"
+        },
+        {
+            "Front": "귀살대",
+            "Back": "Demon Slayer Corps\n<ul><li>귀살대는 혈귀를 사냥하는 조직이다.</li><li>The Demon Slayer Corps is an organization that hunts demons.</li></ul>"
+        },
+        {
+            "Front": "니치린 검",
+            "Back": "Nichirin Blade\n<ul><li>니치린 검은 혈귀를 무찌르기 위한 특별한 검이다.</li><li>The Nichirin Blade is a special sword for defeating demons.</li></ul>"
+        },
+        {
+            "Front": "통제된 혈귀",
+            "Back": "Controlled demon\n<ul><li>통제된 혈귀는 인간에게 해를 끼치지 않는다.</li><li>A controlled demon does not harm humans.</li></ul>"
+        },
+        {
+            "Front": "호흡 기술",
+            "Back": "Breathing Technique\n<ul><li>호흡 기술은 혈귀사냥꾼들이 사용하는 강력한 능력이다.</li><li>Breathing Technique is a powerful ability used by demon slayers.</li></ul>"
+        },
+        {
+            "Front": "가문",
+            "Back": "Family clan\n<ul><li>그는 오래된 가문에서 왔다.</li><li>He comes from an old family clan.</li></ul>"
+        },
+        {
+            "Front": "보호자",
+            "Back": "Protector\n<ul><li>탄지로는 네즈코의 보호자다.</li><li>Tanjiro is Nezuko's protector.</li></ul>"
+        },
+        {
+            "Front": "인간과 혈귀의 혼혈",
+            "Back": "Human-demon hybrid\n<ul><li>인간과 혈귀의 혼혈은 매우 드문 현상이다.</li><li>A human-demon hybrid is a very rare phenomenon.</li></ul>"
+        },
+        {
+            "Front": "불멸",
+            "Back": "Immortality\n<ul><li>혈귀는 불멸에 가까운 생명력을 가지고 있다.</li><li>Demons have a life force close to immortality.</li></ul>"
+        },
+        {
+            "Front": "일식",
+            "Back": "Solar eclipse\n<ul><li>일식 동안 혈귀들은 더 강해진다.</li><li>During a solar eclipse, demons become stronger.</li></ul>"
+        }
+    ]
+}
+```
