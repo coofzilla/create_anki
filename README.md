@@ -120,17 +120,17 @@ Desired output:
     "deck": "Demon Slayer",
     "notes": [
         {
-            "Front": "Verb stem + (으)면 할수록",
-            "Back": "The more... the more (comparison)\n<ul><li>탄지로는 훈련을 하면 할수록 강해진다.</li><li>The more Tanjiro trains, the stronger he becomes.</li></ul>"
+            "Front": "Noun + (이)라 해도 과언이 아니다",
+            "Back": "It is not an exaggeration to say that... (emphasis)\n<ul><li>탄지로가 용감하다고 해도 과언이 아니다.</li><li>It's not an exaggeration to say that Tanjiro is brave.</li></ul>"
         },
         {
-            "Front": "Noun + 에 비추어 보아",
-            "Back": "Considering... (judgment)\n<ul><li>그의 나이에 비추어 보아, 그는 매우 강하다.</li><li>Considering his age, he is very strong.</li></ul>"
+            "Front": "Noun + 에 대해 깊이 이해하다",
+            "Back": "To deeply understand... (understanding)\n<ul><li>탄지로는 혈귀에 대해 깊이 이해하려고 노력했다.</li><li>Tanjiro made an effort to deeply understand demons.</li></ul>"
         },
         {
-            "Front": "Verb stem + (으)ㄹ 바에야",
-            "Back": "It's better to... (preference)\n<ul><li>저주 받을 바에야, 그는 혈귀와 싸울 것이다.</li><li>He would rather fight with the demon than be cursed.</li></ul>"
-        },
+            "Front": "Verb stem + (으)ㄹ 필요가 있다",
+            "Back": "There is a need to... (necessity)\n<ul><li>우리는 상황을 신속하게 평가할 필요가 있다.</li><li>We need to assess the situation quickly.</li></ul>"
+        }
     ]
 }
 
