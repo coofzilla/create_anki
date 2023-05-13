@@ -168,7 +168,36 @@ Desired output:
     ]
 }
 
+```
 
+#### Grammar Example Output
+
+```
+{
+    "deck": "Demon Slayer",
+    "notes": [
+        {
+            "Front": "탄지로는 네즈코를 구하려면 어려움이 ___라도 결코 포기하지 않았다.",
+            "Back": "Even if there were difficulties\n<ul><li>탄지로는 네즈코를 구하려면 어려움이 많을지라도 결코 포기하지 않았다.</li><li>Even if there were difficulties, Tanjiro never gave up on saving Nezuko.</li></ul>"
+        },
+        {
+            "Front": "혈귀와의 싸움이 힘들___라도, 그는 자신의 능력을 믿고 계속 전투했다.",
+            "Back": "Even if the fight with the demon was tough\n<ul><li>혈귀와의 싸움이 힘들지라도, 그는 자신의 능력을 믿고 계속 전투했다.</li><li>Even if the fight with the demon was tough, he believed in his abilities and continued the battle.</li></ul>"
+        },
+        {
+            "Front": "탄지로가 어떤 ___라도, 그는 네즈코를 위해 어떤 것이라도 할 준비가 되어 있었다.",
+            "Back": "Sacrifice\n<ul><li>탄지로가 어떤 희생이라도, 그는 네즈코를 위해 어떤 것이라도 할 준비가 되어 있었다.</li><li>Regardless of the sacrifice, Tanjiro was ready to do anything for Nezuko.</li></ul>"
+        },
+        {
+            "Front": "혈귀가 강력___라도, 그는 결코 두려워하지 않고 맞서 싸웠다.",
+            "Back": "Even if the demon was powerful\n<ul><li>혈귀가 강력할지라도, 그는 결코 두려워하지 않고 맞서 싸웠다.</li><li>Even if the demon was powerful, he fought without fear.</li></ul>"
+        },
+        {
+            "Front": "얼마나 많은 혈귀들이 그의 길을 막___라도, 그는 자신의 목표를 향해 나아갔다.",
+            "Back": "Even if many demons blocked his way\n<ul><li>얼마나 많은 혈귀들이 그의 길을 막을지라도, 그는 자신의 목표를 향해 나아갔다.</li><li>Even if many demons blocked his way, he moved towards his goal.</li></ul>"
+        }
+    ]
+}
 ```
 
 #### Vocabulary Example Output
