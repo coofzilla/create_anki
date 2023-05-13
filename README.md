@@ -81,6 +81,40 @@ Example:
 | 200         | Notes added successfully.        |
 | 400         | Missing deck name or notes data. |
 
+
+#### Vocabulary Example Prompt
+
+You are a Korean Language flash card creation assistant. Please make flash cards that utilize grammar from the book, Korean Grammar In Use Advanced. The vocabulary used should be from TOPIK 4-6. The context of the sentences should be based the animation 귀멸의 칼날. 
+
+I will provide you an example output; however, do not use these vocabulary words in your response.
+
+Example output:
+
+
+```
+{
+    "deck": "Demon Slayer",
+    "notes": [
+        {
+            "Front": "탄지로가 자신의 동생, 네즈코를 ___ 위해 끝없이 싸우는 모습을 보면서, 나는 가족에 대한 그의 애정을 느낄 수 있었다.",
+            "Back": "Protect\n<ul><li>탄지로가 자신의 동생, 네즈코를 보호하기 위해 끝없이 싸우는 모습을 보면서, 나는 가족에 대한 그의 애정을 느낄 수 있었다.</li><li>Watching Tanjiro endlessly fight to protect his sister, Nezuko, I could feel his affection for his family.</li></ul>"
+        },
+        {
+            "Front": "우리는 ___적인 훈련을 통해 능력을 향상시키는 것이 얼마나 중요한지를 깨닫게 되었다.",
+            "Back": "Intensive\n<ul><li>우리는 집중적인 훈련을 통해 능력을 향상시키는 것이 얼마나 중요한지를 깨닫게 되었다.</li><li>We realized how important it is to improve our abilities through intensive training.</li></ul>"
+        },
+        {
+            "Front": "마귀와의 ___ 도전에도 불구하고, 탄지로는 결코 포기하지 않는 모습이 인상적이었다.",
+            "Back": "Countless\n<ul><li>마귀와의 무수한 도전에도 불구하고, 탄지로는 결코 포기하지 않는 모습이 인상적이었다.</li><li>Despite countless challenges with demons, Tanjiro's never-give-up attitude was impressive.</li></ul>"
+        },
+        {
+            "Front": "탄지로가 ___적으로 마귀와 싸워야 하는 이유는, 그가 자신의 동생을 인간으로 되돌리기 위한 목표를 이루기 위해서였다.",
+            "Back": "Frequently\n<ul><li>탄지로가 자주적으로 마귀와 싸워야 하는 이유는, 그가 자신의 동생을 인간으로 되돌리기 위한 목표를 이루기 위해서였다.</li><li>The reason Tanjiro had to frequently fight demons was to achieve his goal of turning his sister back into a human.</li></ul>"
+        }
+    ]
+}
+```
+
 #### GPT Prompt Script
 
 ```
@@ -144,30 +178,6 @@ Desired output:
     "deck": "Demon Slayer",
     "notes": [
         {
-            "Front": "혈귀",
-            "Back": "Demon\n<ul><li>혈귀는 인간의 피를 마시고 생존한다.</li><li>Demons survive by drinking human blood.</li></ul>"
-        },
-        {
-            "Front": "귀살대",
-            "Back": "Demon Slayer Corps\n<ul><li>귀살대는 혈귀를 사냥하는 조직이다.</li><li>The Demon Slayer Corps is an organization that hunts demons.</li></ul>"
-        },
-        {
-            "Front": "니치린 검",
-            "Back": "Nichirin Blade\n<ul><li>니치린 검은 혈귀를 무찌르기 위한 특별한 검이다.</li><li>The Nichirin Blade is a special sword for defeating demons.</li></ul>"
-        },
-        {
-            "Front": "통제된 혈귀",
-            "Back": "Controlled demon\n<ul><li>통제된 혈귀는 인간에게 해를 끼치지 않는다.</li><li>A controlled demon does not harm humans.</li></ul>"
-        },
-        {
-            "Front": "호흡 기술",
-            "Back": "Breathing Technique\n<ul><li>호흡 기술은 혈귀사냥꾼들이 사용하는 강력한 능력이다.</li><li>Breathing Technique is a powerful ability used by demon slayers.</li></ul>"
-        },
-        {
-            "Front": "가문",
-            "Back": "Family clan\n<ul><li>그는 오래된 가문에서 왔다.</li><li>He comes from an old family clan.</li></ul>"
-        },
-        {
             "Front": "보호자",
             "Back": "Protector\n<ul><li>탄지로는 네즈코의 보호자다.</li><li>Tanjiro is Nezuko's protector.</li></ul>"
         },
@@ -186,3 +196,43 @@ Desired output:
     ]
 }
 ```
+
+#### Cloze Workaround Sample ( allows back )
+
+```
+{
+    "deck": "Demon Slayer",
+    "notes": [
+        {
+            "Front": "혈귀왕이 ___을 내렸다.",
+            "Back": "Command\n<ul><li>혈귀왕이 명령을 내렸다.</li><li>The Demon King issued a command.</li></ul>"
+        },
+        {
+            "Front": "니치린 검을 만드는 것은 귀살대의 ___이었다.",
+            "Back": "Order\n<ul><li>니치린 검을 만드는 것은 귀살대의 명령이었다.</li><li>Making the Nichirin Blade was an order from the Demon Slayer Corps.</li></ul>"
+        },
+        {
+            "Front": "그는 선배로부터 호흡 기술을 배우는 ___을 받았다.",
+            "Back": "Instruction\n<ul><li>그는 선배로부터 호흡 기술을 배우는 명령을 받았다.</li><li>He received an instruction to learn the Breathing Technique from his senior.</li></ul>"
+        },
+        {
+            "Front": "그의 ___은 가문의 모든 구성원에게 적용된다.",
+            "Back": "Decree\n<ul><li>그의 명령은 가문의 모든 구성원에게 적용된다.</li><li>His decree applies to all members of the family clan.</li></ul>"
+        },
+        {
+            "Front": "보호자로서, 그는 네즈코에게 안전을 유지하는 ___을 내렸다.",
+            "Back": "Directive\n<ul><li>보호자로서, 그는 네즈코에게 안전을 유지하는 명령을 내렸다.</li><li>As a protector, he issued a directive to Nezuko to maintain safety.</li></ul>"
+        }
+    ]
+}
+```
+
+#### Vocab Breakdown
+
+```
+front: 사명
+back: Mission (calling)
+
+"사명" is composed of two Korean words: "사" which means "task" or "duty" and "명" which means "command" or "order." Therefore, "사명" can be understood as a duty or task given or commanded, often implying a greater or noble purpose that one is dedicated to. It could be used in the context of a personal calling or a professional mission.
+```
+
