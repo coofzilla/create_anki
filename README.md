@@ -81,15 +81,59 @@ Example:
 | 200         | Notes added successfully.        |
 | 400         | Missing deck name or notes data. |
 
-
 #### Vocabulary Example Prompt
 
-You are a Korean Language flash card creation assistant. Please make flash cards that utilize grammar from the book, Korean Grammar In Use Advanced. The vocabulary used should be from TOPIK 4-6. The context of the sentences should be based the animation 귀멸의 칼날. 
+You are a Korean Language flash card creation assistant. Please make flash cards that utilize grammar from the book, Korean Grammar In Use Advanced. The vocabulary used should be from TOPIK 4-6. The context of the sentences should be based the animation 귀멸의 칼날.
 
 I will provide you an example output; however, do not use these vocabulary words in your response.
 
-Example output:
 
+Example template:
+
+```json
+{
+    "deck": "*Deck Name Here*",
+    "notes": [
+        {
+            "Front": "*___ (단어)로 채울 문장 여기에 입력*",
+            "Back": "*Missing Word Here*\n<ul><li>*Cloze sentence with the missing word filled in here in Korean*</li><li>*Translation or Additional Explanation Here in English*</li></ul>"
+        },
+        {
+            "Front": "*___ (단어)로 채울 문장 여기에 입력*",
+            "Back": "*Missing Word Here*\n<ul><li>*Cloze sentence with the missing word filled in here in Korean*</li><li>*Translation or Additional Explanation Here in English*</li></ul>"
+        },
+        {
+            "Front": "*___ (단어)로 채울 문장 여기에 입력*",
+            "Back": "*Missing Word Here*\n<ul><li>*Cloze sentence with the missing word filled in here in Korean*</li><li>*Translation or Additional Explanation Here in English*</li></ul>"
+        }
+    ]
+}
+
+```
+
+Example based on template:
+
+```json
+{
+    "deck": "Basic Korean Vocabulary",
+    "notes": [
+        {
+            "Front": "그녀는 커피를 마시며 책을 ___.",
+            "Back": "읽다\n<ul><li>그녀는 커피를 마시며 책을 읽다.</li><li>She reads a book while drinking coffee.</li></ul>"
+        },
+        {
+            "Front": "저는 아침에 일어나서 ___.",
+            "Back": "운동하다\n<ul><li>저는 아침에 일어나서 운동하다.</li><li>I exercise after waking up in the morning.</li></ul>"
+        },
+        {
+            "Front": "그는 친구들과 함께 영화를 ___.",
+            "Back": "보다\n<ul><li>그는 친구들과 함께 영화를 보다.</li><li>He watches a movie with his friends.</li></ul>"
+        }
+    ]
+}
+```
+
+Example output:
 
 ```
 {
@@ -115,38 +159,10 @@ Example output:
 }
 ```
 
-#### GPT Prompt Script
-
-```
-You are a Korean Language flash card assistant. You are to take the provided Japanese script and give me vocabulary related to it. However, the front of the card should be Korean and back should be English.
-
-Desired output:
-
-{
-    "deck": "Demon Slayer",
-    "notes": [
-        {
-            "Front": "비위",
-            "Back": "Dislike"
-        },
-        {
-            "Front": "얼굴",
-            "Back": "Face"
-        },
-        ...
-    ]
-}
-
-Script: <Japanese Script Here>
-```
-
 #### GPT Prompt Grammar
 
 ```
-You are an AI Korean language creation flash card assistant. Please make me a list of useful grammar referencing the book Korean grammar in use intermediate as a guide that is related to the anime "Demon Slayer".
-
-To be clear, the example sentences should be related to the anime Demon Slayer.
-
+Please create Korean Language flashcards utilizing a random advanced grammar from the book "Korean Grammar In Use Advanced". The vocabulary used should be from TOPIK 4-6. The context of the sentences should be based on the animation "귀멸의 칼날" (Demon Slayer). Please choose a random advanced grammar and let me confirm it before making the flashcards.
 
 Desired output:
 
@@ -154,16 +170,20 @@ Desired output:
     "deck": "Demon Slayer",
     "notes": [
         {
-            "Front": "Noun + (이)라 해도 과언이 아니다",
-            "Back": "It is not an exaggeration to say that... (emphasis)\n<ul><li>탄지로가 용감하다고 해도 과언이 아니다.</li><li>It's not an exaggeration to say that Tanjiro is brave.</li></ul>"
+            "Front": "탄지로는 혈귀를 처치하는 데 능숙할 ___ 아니라, 탁월한 지도자로도 알려져 있다.",
+            "Back": "Not only\n<ul><li>탄지로는 혈귀를 처치하는 데 능숙할 뿐만 아니라, 탁월한 지도자로도 알려져 있다.</li><li>Not only is Tanjiro skilled in slaying demons, but he is also known as an excellent leader.</li></ul>"
         },
         {
-            "Front": "Noun + 에 대해 깊이 이해하다",
-            "Back": "To deeply understand... (understanding)\n<ul><li>탄지로는 혈귀에 대해 깊이 이해하려고 노력했다.</li><li>Tanjiro made an effort to deeply understand demons.</li></ul>"
+            "Front": "네즈코는 혈귀로서의 힘을 가지고 ___ 아니라, 그녀는 인간성을 유지하는 데 성공했다.",
+            "Back": "Not only\n<ul><li>네즈코는 혈귀로서의 힘을 가지고 있을 뿐만 아니라, 그녀는 인간성을 유지하는 데 성공했다.</li><li>Not only does Nezuko possess the power of a demon, but she also managed to maintain her humanity.</li></ul>"
         },
         {
-            "Front": "Verb stem + (으)ㄹ 필요가 있다",
-            "Back": "There is a need to... (necessity)\n<ul><li>우리는 상황을 신속하게 평가할 필요가 있다.</li><li>We need to assess the situation quickly.</li></ul>"
+            "Front": "탄지로는 싸움에서 이길 ___ 아니라, 그는 형제의 사랑을 통해 많은 사람들의 마음을 이겼다.",
+            "Back": "Not only\n<ul><li>탄지로는 싸움에서 이길 뿐만 아니라, 그는 형제의 사랑을 통해 많은 사람들의 마음을 이겼다.</li><li>Not only did Tanjiro win in battles, but he also won many people's hearts through his brotherly love.</li></ul>"
+        },
+        {
+            "Front": "귀살대는 혈귀를 물리치는 ___ 아니라, 인간들을 보호하는 임무도 가지고 있다.",
+            "Back": "Not only\n<ul><li>귀살대는 혈귀를 물리치는 뿐만 아니라, 인간들을 보호하는 임무도 가지고 있다.</li><li>Not only does the Demon Slayer Corps repel demons, but they also have the duty to protect humans.</li></ul>"
         }
     ]
 }
@@ -265,3 +285,27 @@ back: Mission (calling)
 "사명" is composed of two Korean words: "사" which means "task" or "duty" and "명" which means "command" or "order." Therefore, "사명" can be understood as a duty or task given or commanded, often implying a greater or noble purpose that one is dedicated to. It could be used in the context of a personal calling or a professional mission.
 ```
 
+#### GPT Prompt Script
+
+```
+You are a Korean Language flash card assistant. You are to take the provided Japanese script and give me vocabulary related to it. However, the front of the card should be Korean and back should be English.
+
+Desired output:
+
+{
+    "deck": "Demon Slayer",
+    "notes": [
+        {
+            "Front": "비위",
+            "Back": "Dislike"
+        },
+        {
+            "Front": "얼굴",
+            "Back": "Face"
+        },
+        ...
+    ]
+}
+
+Script: <Japanese Script Here>
+```
